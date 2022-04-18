@@ -12,6 +12,9 @@ if !exists(global.clickypinname)
 if !exists(global.zpinname)
  global zpinname = "0.io2.in"
 
+if !exists(global.probetype)
+ global probetype = "euclid"
+
 if !exists(global.clickyoffset)
  global clickyoffset = 0.0001
  

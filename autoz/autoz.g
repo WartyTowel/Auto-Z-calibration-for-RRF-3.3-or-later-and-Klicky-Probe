@@ -43,7 +43,11 @@ M98 P"/macros/autoz/scripts/autozhop_up.g"
 M400
 M98 P"/macros/autoz/scripts/clicky_status.g"
 M400
-M98 P"/macros/autoz/scripts/loadclicky.g" ; pick up and verify clicky
+
+if global.probetype = "clicky"
+  M98 P"/macros/autoz/scripts/loadclicky.g" ; pick up and verify clicky
+if global.probetype = "euclid"
+  M98 P"/macros/autoz/scripts/loadeuclid.g" ; pick up euclid
 M400
 M98 P"/macros/autoz/scripts/clicky_status.g"
 
@@ -51,7 +55,10 @@ M400
 M98 P"/macros/autoz/scripts/confirmclicky.g"
 
 M400
-M98 P"/macros/autoz/scripts/pin_xy_clicky.g" ; move the clicky probe switch body over the z pin
+if global.probetype = "clicky"
+  M98 P"/macros/autoz/scripts/pin_xy_clicky.g" ; move the clicky probe switch body over the z pin
+if global.probetype = "euclid"
+  M98 P"/macros/autoz/scripts/pin_xy_euclid.g" ; move the clicky probe switch body over the z pin
 M400
 M98 P"/macros/autoz/scripts/use_pin_autoz.g" ; use the z pin
 M400
@@ -90,7 +97,8 @@ M291 T5 R"AutoZ complete" P"Z offset was detected"
 M98 P"/macros/autoz/scripts/restore_zdrive.g" ; restore the z drive to the state before autoz
 M98 P"/macros/autoz/scripts/autozhop_up.g" ; small z hop
 M400
-M98 P"/macros/autoz/scripts/unloadclicky.g" ; unload the clicky probe
+;M98 P"/macros/autoz/scripts/unloadclicky.g" ; unload the clicky probe
+M98 P"/macros/autoz/scripts/unloadeuclid.g" ; unload the clicky probe
 M98 P"/macros/autoz/scripts/bedcenter.g" ; go to the center of the bed 
 ;M98 P"/macros/autoz/scripts/alldone.g" ; do a happy dance
 
